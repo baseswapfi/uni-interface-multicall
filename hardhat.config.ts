@@ -1,10 +1,7 @@
 import * as dotenv from 'dotenv';
 import { HardhatUserConfig } from 'hardhat/config';
 import '@nomicfoundation/hardhat-toolbox';
-import '@openzeppelin/hardhat-upgrades';
 import '@nomiclabs/hardhat-etherscan';
-import 'hardhat-contract-sizer';
-import 'hardhat-gas-reporter';
 
 dotenv.config();
 
@@ -18,14 +15,11 @@ const config: HardhatUserConfig = {
         settings: {
           optimizer: {
             enabled: true,
-            runs: 1000000 ,
+            runs: 1000000,
           },
         },
       },
     ],
-  },
-  contractSizer: {
-    // override defaults as needed: https://www.npmjs.com/package/hardhat-contract-sizer
   },
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
@@ -39,9 +33,6 @@ const config: HardhatUserConfig = {
         },
       },
     ],
-  },
-  gasReporter: {
-    enabled: true,
   },
   networks: {
     hardhat: {
@@ -81,13 +72,8 @@ const config: HardhatUserConfig = {
       url: process.env.BASE_GOERLI_RPC,
       accounts,
       chainId: 84531,
-      // gas: 500000,
-      // gasPrice: 100,
-    },
-    bsc: {
-      url: process.env.BSC_RPC || '',
-      accounts,
-      chainId: 56,
+      gas: 500000,
+      gasPrice: 100,
     },
   },
 };

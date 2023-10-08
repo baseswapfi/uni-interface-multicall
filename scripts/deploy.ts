@@ -4,7 +4,10 @@ import { deployTestToken } from './utils/contract.utils';
 async function main() {
   try {
     const signer = (await ethers.getSigners())[0];
-    await deployTestToken('V3 Prep', 'V3P', 18, signer);
+    const UniswapInterfaceMulticall = await ethers.getContractFactory('UniswapInterfaceMulticall', signer);
+    const instance = await UniswapInterfaceMulticall.deploy();
+    await instance.deployed();
+    console.log(`UniswapInterfaceMulticall deployed to : ${instance.address}`);
   } catch (error) {
     console.error(error);
     process.exitCode = 1;
