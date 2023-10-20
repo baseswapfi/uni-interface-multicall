@@ -26,6 +26,7 @@ const config = {
     apiKey: {
       base: process.env.BASE_SCAN_API_KEY,
       scrollSepolia: 'abc',
+      scroll: process.env.SCROLL_SCAN_API_KEY,
     },
     customChains: [
       {
@@ -42,6 +43,14 @@ const config = {
         urls: {
           apiURL: 'https://sepolia-blockscout.scroll.io/api',
           browserURL: 'https://sepolia-blockscout.scroll.io/',
+        },
+      },
+      {
+        network: 'scroll',
+        chainId: 534352,
+        urls: {
+          apiURL: 'https://api.scrollscan.com/api',
+          browserURL: 'https://scrollscan.com/',
         },
       },
     ],
@@ -86,6 +95,11 @@ const config = {
       chainId: 84531,
       gas: 500000,
       gasPrice: 100,
+    },
+    scroll: {
+      url: process.env.SCROLL_RPC,
+      accounts,
+      chainId: 534352,
     },
     scrollSepolia: {
       url: process.env.SCROLL_SEPOLIA_RPC,
