@@ -1,5 +1,4 @@
 import { ethers } from 'hardhat';
-import { deployTestToken } from './utils/contract.utils';
 
 async function main() {
   try {
