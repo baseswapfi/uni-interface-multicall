@@ -106,6 +106,11 @@ const config = {
       accounts,
       chainId: 534351,
     },
+    sonicTestnet: {
+      url: process.env.SONIC_TESTNET_RPC,
+      accounts,
+      chainId: 64165,
+    },
   },
 };
 
